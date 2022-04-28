@@ -128,6 +128,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Client.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Emp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AuthoriztionPage.xaml.cs">
@@ -142,6 +150,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PolyclinicModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Client.xaml.cs">
+      <DependentUpon>Client.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Emp.xaml.cs">
+      <DependentUpon>Emp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
