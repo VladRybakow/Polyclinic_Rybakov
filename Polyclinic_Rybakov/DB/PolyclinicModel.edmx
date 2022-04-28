@@ -1,0 +1,1073 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище PolyclinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Id_application" />
+          </Key>
+          <Property Name="Id_application" Type="int" Nullable="false" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="Id_service" Type="int" />
+          <Property Name="Id_doctor" Type="int" />
+          <Property Name="Id_cabinet" Type="int" />
+          <Property Name="Id_user" Type="int" />
+        </EntityType>
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="Id_business" />
+          </Key>
+          <Property Name="Id_business" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Id_user" Type="int" />
+          <Property Name="Id_application" Type="int" />
+          <Property Name="Id_conclusion" Type="int" />
+        </EntityType>
+        <EntityType Name="Cabinet">
+          <Key>
+            <PropertyRef Name="Id_cabinet" />
+          </Key>
+          <Property Name="Id_cabinet" Type="int" Nullable="false" />
+          <Property Name="Id_department" Type="int" />
+        </EntityType>
+        <EntityType Name="Conclusion">
+          <Key>
+            <PropertyRef Name="Id_conclusion" />
+          </Key>
+          <Property Name="Id_conclusion" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Id_application" Type="int" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id_department" />
+          </Key>
+          <Property Name="Id_department" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="35" />
+          <Property Name="Id_polyclinic" Type="int" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id_doctor" />
+          </Key>
+          <Property Name="Id_doctor" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_doctorType" Type="int" />
+        </EntityType>
+        <EntityType Name="DoctorType">
+          <Key>
+            <PropertyRef Name="Id_doctorType" />
+          </Key>
+          <Property Name="Id_doctorType" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id_employees" />
+          </Key>
+          <Property Name="Id_employees" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_department" Type="int" />
+          <Property Name="Id_doctorType" Type="int" />
+          <Property Name="Id_Role" Type="int" />
+        </EntityType>
+        <EntityType Name="Polyclinic">
+          <Key>
+            <PropertyRef Name="Id_polyclinic" />
+          </Key>
+          <Property Name="Id_polyclinic" Type="int" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Director" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id_Role" />
+          </Key>
+          <Property Name="Id_Role" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id_service" />
+          </Key>
+          <Property Name="Id_service" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Id_cabinet" Type="int" />
+          <Property Name="Id_doctor" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_user" />
+          </Key>
+          <Property Name="Id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Application_Cabinet">
+          <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cabinet">
+              <PropertyRef Name="Id_cabinet" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_cabinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_doctor" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id_service" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id_user" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Id_application" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Id_application" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Conclusion">
+          <End Role="Conclusion" Type="Self.Conclusion" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conclusion">
+              <PropertyRef Name="Id_conclusion" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Id_conclusion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id_user" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cabinet_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id_department" />
+            </Principal>
+            <Dependent Role="Cabinet">
+              <PropertyRef Name="Id_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conclusion_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Conclusion" Type="Self.Conclusion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Id_application" />
+            </Principal>
+            <Dependent Role="Conclusion">
+              <PropertyRef Name="Id_application" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Polyclinic">
+          <End Role="Polyclinic" Type="Self.Polyclinic" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polyclinic">
+              <PropertyRef Name="Id_polyclinic" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Id_polyclinic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_DoctorType">
+          <End Role="DoctorType" Type="Self.DoctorType" Multiplicity="0..1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoctorType">
+              <PropertyRef Name="Id_doctorType" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="Id_doctorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id_department" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Id_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_DoctorType">
+          <End Role="DoctorType" Type="Self.DoctorType" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoctorType">
+              <PropertyRef Name="Id_doctorType" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Id_doctorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id_Role" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Cabinet">
+          <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cabinet">
+              <PropertyRef Name="Id_cabinet" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_cabinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_doctor" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище PolyclinicModelContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cabinet" EntityType="Self.Cabinet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conclusion" EntityType="Self.Conclusion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorType" EntityType="Self.DoctorType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polyclinic" EntityType="Self.Polyclinic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Application_Cabinet" Association="Self.FK_Application_Cabinet">
+            <End Role="Cabinet" EntitySet="Cabinet" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Doctor" Association="Self.FK_Application_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Service" Association="Self.FK_Application_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_User" Association="Self.FK_Application_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Application" Association="Self.FK_Business_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Conclusion" Association="Self.FK_Business_Conclusion">
+            <End Role="Conclusion" EntitySet="Conclusion" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_User" Association="Self.FK_Business_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cabinet_Department" Association="Self.FK_Cabinet_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Cabinet" EntitySet="Cabinet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conclusion_Application" Association="Self.FK_Conclusion_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Conclusion" EntitySet="Conclusion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Polyclinic" Association="Self.FK_Department_Polyclinic">
+            <End Role="Polyclinic" EntitySet="Polyclinic" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_DoctorType" Association="Self.FK_Doctor_DoctorType">
+            <End Role="DoctorType" EntitySet="DoctorType" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Department" Association="Self.FK_Employees_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_DoctorType" Association="Self.FK_Employees_DoctorType">
+            <End Role="DoctorType" EntitySet="DoctorType" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Roles" Association="Self.FK_Employees_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Cabinet" Association="Self.FK_Service_Cabinet">
+            <End Role="Cabinet" EntitySet="Cabinet" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Doctor" Association="Self.FK_Service_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PolyclinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Id_application" />
+          </Key>
+          <Property Name="Id_application" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="Id_service" Type="Int32" />
+          <Property Name="Id_doctor" Type="Int32" />
+          <Property Name="Id_cabinet" Type="Int32" />
+          <Property Name="Id_user" Type="Int32" />
+          <NavigationProperty Name="Cabinet" Relationship="Self.FK_Application_Cabinet" FromRole="Application" ToRole="Cabinet" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Application_Doctor" FromRole="Application" ToRole="Doctor" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Application_Service" FromRole="Application" ToRole="Service" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Application_User" FromRole="Application" ToRole="User" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Application" FromRole="Application" ToRole="Business" />
+          <NavigationProperty Name="Conclusion" Relationship="Self.FK_Conclusion_Application" FromRole="Application" ToRole="Conclusion" />
+        </EntityType>
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="Id_business" />
+          </Key>
+          <Property Name="Id_business" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Id_user" Type="Int32" />
+          <Property Name="Id_application" Type="Int32" />
+          <Property Name="Id_conclusion" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Business_Application" FromRole="Business" ToRole="Application" />
+          <NavigationProperty Name="Conclusion" Relationship="Self.FK_Business_Conclusion" FromRole="Business" ToRole="Conclusion" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Business_User" FromRole="Business" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Cabinet">
+          <Key>
+            <PropertyRef Name="Id_cabinet" />
+          </Key>
+          <Property Name="Id_cabinet" Type="Int32" Nullable="false" />
+          <Property Name="Id_department" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Cabinet" FromRole="Cabinet" ToRole="Application" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Cabinet_Department" FromRole="Cabinet" ToRole="Department" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Service_Cabinet" FromRole="Cabinet" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Conclusion">
+          <Key>
+            <PropertyRef Name="Id_conclusion" />
+          </Key>
+          <Property Name="Id_conclusion" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Id_application" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Conclusion_Application" FromRole="Conclusion" ToRole="Application" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Conclusion" FromRole="Conclusion" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id_department" />
+          </Key>
+          <Property Name="Id_department" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="35" FixedLength="true" Unicode="true" />
+          <Property Name="Id_polyclinic" Type="Int32" />
+          <NavigationProperty Name="Cabinet" Relationship="Self.FK_Cabinet_Department" FromRole="Department" ToRole="Cabinet" />
+          <NavigationProperty Name="Polyclinic" Relationship="Self.FK_Department_Polyclinic" FromRole="Department" ToRole="Polyclinic" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Department" FromRole="Department" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id_doctor" />
+          </Key>
+          <Property Name="Id_doctor" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_doctorType" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Doctor" FromRole="Doctor" ToRole="Application" />
+          <NavigationProperty Name="DoctorType" Relationship="Self.FK_Doctor_DoctorType" FromRole="Doctor" ToRole="DoctorType" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Service_Doctor" FromRole="Doctor" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="DoctorType">
+          <Key>
+            <PropertyRef Name="Id_doctorType" />
+          </Key>
+          <Property Name="Id_doctorType" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Doctor_DoctorType" FromRole="DoctorType" ToRole="Doctor" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_DoctorType" FromRole="DoctorType" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id_employees" />
+          </Key>
+          <Property Name="Id_employees" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_department" Type="Int32" />
+          <Property Name="Id_doctorType" Type="Int32" />
+          <Property Name="Id_Role" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Employees_Department" FromRole="Employees" ToRole="Department" />
+          <NavigationProperty Name="DoctorType" Relationship="Self.FK_Employees_DoctorType" FromRole="Employees" ToRole="DoctorType" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK_Employees_Roles" FromRole="Employees" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Polyclinic">
+          <Key>
+            <PropertyRef Name="Id_polyclinic" />
+          </Key>
+          <Property Name="Id_polyclinic" Type="Int32" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Department_Polyclinic" FromRole="Polyclinic" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id_Role" />
+          </Key>
+          <Property Name="Id_Role" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Roles" FromRole="Roles" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id_service" />
+          </Key>
+          <Property Name="Id_service" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Id_cabinet" Type="Int32" />
+          <Property Name="Id_doctor" Type="Int32" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Service" FromRole="Service" ToRole="Application" />
+          <NavigationProperty Name="Cabinet" Relationship="Self.FK_Service_Cabinet" FromRole="Service" ToRole="Cabinet" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Service_Doctor" FromRole="Service" ToRole="Doctor" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_user" />
+          </Key>
+          <Property Name="Id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_User" FromRole="User" ToRole="Application" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_User" FromRole="User" ToRole="Business" />
+        </EntityType>
+        <Association Name="FK_Application_Cabinet">
+          <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cabinet">
+              <PropertyRef Name="Id_cabinet" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_cabinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_doctor" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id_service" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id_user" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Id_application" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Id_application" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conclusion_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Conclusion" Type="Self.Conclusion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Id_application" />
+            </Principal>
+            <Dependent Role="Conclusion">
+              <PropertyRef Name="Id_application" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_Conclusion">
+          <End Role="Conclusion" Type="Self.Conclusion" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conclusion">
+              <PropertyRef Name="Id_conclusion" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Id_conclusion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id_user" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="Id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cabinet_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id_department" />
+            </Principal>
+            <Dependent Role="Cabinet">
+              <PropertyRef Name="Id_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Cabinet">
+          <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cabinet">
+              <PropertyRef Name="Id_cabinet" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_cabinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Polyclinic">
+          <End Role="Polyclinic" Type="Self.Polyclinic" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polyclinic">
+              <PropertyRef Name="Id_polyclinic" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Id_polyclinic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id_department" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Id_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_DoctorType">
+          <End Role="DoctorType" Type="Self.DoctorType" Multiplicity="0..1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoctorType">
+              <PropertyRef Name="Id_doctorType" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="Id_doctorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_doctor" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_DoctorType">
+          <End Role="DoctorType" Type="Self.DoctorType" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoctorType">
+              <PropertyRef Name="Id_doctorType" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Id_doctorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id_Role" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PolyclinicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Application" EntityType="Self.Application" />
+          <EntitySet Name="Business" EntityType="Self.Business" />
+          <EntitySet Name="Cabinet" EntityType="Self.Cabinet" />
+          <EntitySet Name="Conclusion" EntityType="Self.Conclusion" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+          <EntitySet Name="DoctorType" EntityType="Self.DoctorType" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Polyclinic" EntityType="Self.Polyclinic" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Application_Cabinet" Association="Self.FK_Application_Cabinet">
+            <End Role="Cabinet" EntitySet="Cabinet" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Doctor" Association="Self.FK_Application_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Service" Association="Self.FK_Application_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_User" Association="Self.FK_Application_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Application" Association="Self.FK_Business_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conclusion_Application" Association="Self.FK_Conclusion_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Conclusion" EntitySet="Conclusion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_Conclusion" Association="Self.FK_Business_Conclusion">
+            <End Role="Conclusion" EntitySet="Conclusion" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_User" Association="Self.FK_Business_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cabinet_Department" Association="Self.FK_Cabinet_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Cabinet" EntitySet="Cabinet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Cabinet" Association="Self.FK_Service_Cabinet">
+            <End Role="Cabinet" EntitySet="Cabinet" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Polyclinic" Association="Self.FK_Department_Polyclinic">
+            <End Role="Polyclinic" EntitySet="Polyclinic" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Department" Association="Self.FK_Employees_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_DoctorType" Association="Self.FK_Doctor_DoctorType">
+            <End Role="DoctorType" EntitySet="DoctorType" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Doctor" Association="Self.FK_Service_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_DoctorType" Association="Self.FK_Employees_DoctorType">
+            <End Role="DoctorType" EntitySet="DoctorType" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Roles" Association="Self.FK_Employees_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PolyclinicModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PolyclinicModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PolyclinicModelContainer" CdmEntityContainer="PolyclinicEntities">
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="PolyclinicModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="Id_application" ColumnName="Id_application" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Id_service" ColumnName="Id_service" />
+                <ScalarProperty Name="Id_doctor" ColumnName="Id_doctor" />
+                <ScalarProperty Name="Id_cabinet" ColumnName="Id_cabinet" />
+                <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Business">
+            <EntityTypeMapping TypeName="PolyclinicModel.Business">
+              <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="Id_business" ColumnName="Id_business" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+                <ScalarProperty Name="Id_application" ColumnName="Id_application" />
+                <ScalarProperty Name="Id_conclusion" ColumnName="Id_conclusion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cabinet">
+            <EntityTypeMapping TypeName="PolyclinicModel.Cabinet">
+              <MappingFragment StoreEntitySet="Cabinet">
+                <ScalarProperty Name="Id_cabinet" ColumnName="Id_cabinet" />
+                <ScalarProperty Name="Id_department" ColumnName="Id_department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conclusion">
+            <EntityTypeMapping TypeName="PolyclinicModel.Conclusion">
+              <MappingFragment StoreEntitySet="Conclusion">
+                <ScalarProperty Name="Id_conclusion" ColumnName="Id_conclusion" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id_application" ColumnName="Id_application" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="PolyclinicModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Id_department" ColumnName="Id_department" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_polyclinic" ColumnName="Id_polyclinic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctor">
+            <EntityTypeMapping TypeName="PolyclinicModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Id_doctor" ColumnName="Id_doctor" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Id_doctorType" ColumnName="Id_doctorType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorType">
+            <EntityTypeMapping TypeName="PolyclinicModel.DoctorType">
+              <MappingFragment StoreEntitySet="DoctorType">
+                <ScalarProperty Name="Id_doctorType" ColumnName="Id_doctorType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="PolyclinicModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Id_employees" ColumnName="Id_employees" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id_department" ColumnName="Id_department" />
+                <ScalarProperty Name="Id_doctorType" ColumnName="Id_doctorType" />
+                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polyclinic">
+            <EntityTypeMapping TypeName="PolyclinicModel.Polyclinic">
+              <MappingFragment StoreEntitySet="Polyclinic">
+                <ScalarProperty Name="Id_polyclinic" ColumnName="Id_polyclinic" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="PolyclinicModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="PolyclinicModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Id_service" ColumnName="Id_service" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Id_cabinet" ColumnName="Id_cabinet" />
+                <ScalarProperty Name="Id_doctor" ColumnName="Id_doctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PolyclinicModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="PolyclinicModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище PolyclinicModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище PolyclinicModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище PolyclinicModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище PolyclinicModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PolyclinicModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище PolyclinicModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PolyclinicModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище PolyclinicModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище PolyclinicModel.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
