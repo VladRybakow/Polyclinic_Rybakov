@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Polyclinic_Rybakov.Pages"
+      xmlns:local="clr-namespace:Polyclinic_Rybakov"
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="1440"
       MinHeight="640" MinWidth="820"
@@ -47,19 +47,29 @@
         </Grid.RowDefinitions>
 
         <Rectangle
-            Grid.ColumnSpan="16"
+            Grid.ColumnSpan="15"
             Grid.RowSpan="15"
-            Fill="#FFE6E6E6"/>
+            Fill="#CCEEFF"/>
 
+        <Rectangle 
+            Grid.ColumnSpan="15"
+            Grid.RowSpan="13" Grid.Row="3"
+            Fill="White"
+            />
+
+        <Rectangle 
+            Grid.ColumnSpan="15"
+            Grid.Row="2"
+            Fill="#00B1F0"
+            />
 
         <Button
             Content="Авторизация"
-            Grid.Column="6" Grid.Row="10"
-            HorizontalAlignment="Left" VerticalAlignment="Top" 
-            Height="66" Width="289" Click="AuthButton_Click"
-            FontFamily="Segoe Script" FontSize="22" 
-            BorderBrush="Black" Background="White" Grid.ColumnSpan="4"
-            >
+            Grid.Column="9" Grid.Row="2"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="62" Width="82" Click="AuthButton_Click"
+            FontFamily="Segoe Script" FontSize="10" 
+            BorderBrush="Black" Background="White" Margin="0,3,6,0" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="25" />
@@ -67,13 +77,13 @@
             </Button.Resources>
         </Button>
 
-        <Button  
-            Content="Регистация"
-            Grid.Column="6" Grid.Row="12"
-            HorizontalAlignment="Left" VerticalAlignment="Top"
-            Height="65" Width="288" Click="SignInButton_Click"
-            FontFamily="Segoe Script" FontSize="22" 
-            BorderBrush="Black" Background="White" Grid.ColumnSpan="3">
+        <Button
+            Content="Регистрация"
+            Grid.Column="10" Grid.Row="2"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="63" Width="96" Click="AuthButton_Click"
+            FontFamily="Segoe Script" FontSize="10" 
+            BorderBrush="Black" Background="White" Margin="0,2,0,0" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="25" />
@@ -87,18 +97,38 @@
             Margin="0,23,0,0" 
             Height="45" Width="288" FontSize="22" Grid.ColumnSpan="3"/>
 
+        <Label 
+            Grid.Column="7" Grid.Row="5" Content="Логин" 
+            HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
+            FontFamily="Segoe Script" FontSize="18" Height="67"/>
+
         <TextBox 
             x:Name="Password" Grid.Column="6" Grid.Row="7"
             HorizontalAlignment="Left" 
             Margin="0,23,0,0" 
             Height="45" Width="288" FontSize="22" Grid.ColumnSpan="3"/>
 
-        <Label Grid.Column="7" Grid.Row="5" Content="Логин" 
+        <Label 
+            Grid.Column="7" Grid.Row="7" Content="Пароль" 
             HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
             FontFamily="Segoe Script" FontSize="18" Height="67"/>
 
-        <Label Grid.Column="7" Grid.Row="7" Content="Пароль" 
-            HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
-            FontFamily="Segoe Script" FontSize="18" Height="67"/>
+        <Image Source="logo.png" 
+               Grid.Column="3" Grid.ColumnSpan="3" 
+               Grid.RowSpan="2"/>
+
+        <Label 
+            Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="0" 
+            Content="Портал здравохранения жизни" 
+            FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom"
+            />
+
+        <Label 
+            Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="1" 
+            Content="Республики Майнкрафта"
+            FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
+            />
     </Grid>
 </Page>
