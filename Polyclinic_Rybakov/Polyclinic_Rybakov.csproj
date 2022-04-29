@@ -201,7 +201,7 @@
       <DependentUpon>PolyclinicModel.edmx</DependentUpon>
       <LastGenOutput>PolyclinicModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="Pages\logo.png" />
+    <Resource Include="Images\policlinik.jpg" />
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Polyclinic_Rybakov"
+      xmlns:local="clr-namespace:Polyclinic_Rybakov.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="1440"
       MinHeight="640" MinWidth="820"
@@ -12,21 +12,21 @@
     <Grid Background="White">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -53,7 +53,7 @@
 
         <Rectangle 
             Grid.ColumnSpan="15"
-            Grid.RowSpan="13" Grid.Row="3"
+            Grid.RowSpan="12" Grid.Row="3"
             Fill="White"
             />
 
@@ -67,12 +67,12 @@
             Content="Авторизация"
             Grid.Column="9" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="62" Width="82" Click="AuthButton_Click"
-            FontFamily="Segoe Script" FontSize="10" 
-            BorderBrush="Black" Background="White" Margin="0,3,6,0" >
+            Height="42" Width="86" Click="AuthButton_Click"
+            FontFamily="Segoe Script" FontSize="10"
+            BorderBrush="Black" Background="White" Margin="0,11,4,0" >
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="25" />
+                    <Setter Property="CornerRadius" Value="15" />
                 </Style>
             </Button.Resources>
         </Button>
@@ -81,54 +81,100 @@
             Content="Регистрация"
             Grid.Column="10" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="63" Width="96" Click="AuthButton_Click"
+            Height="42" Width="86" Click="AuthButton_Click"
             FontFamily="Segoe Script" FontSize="10" 
-            BorderBrush="Black" Background="White" Margin="0,2,0,0" >
+            BorderBrush="Black" Background="White" Margin="0,11,4,0" >
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="25" />
+                    <Setter Property="CornerRadius" Value="15" />
                 </Style>
             </Button.Resources>
         </Button>
 
         <TextBox 
-            x:Name="Login" Grid.Column="6" Grid.Row="5"
+            x:Name="Login" Grid.Column="10" Grid.Row="5"
             HorizontalAlignment="Left"
-            Margin="0,23,0,0" 
-            Height="45" Width="288" FontSize="22" Grid.ColumnSpan="3"/>
+            Margin="95,24,0,67" 
+            Height="45" Width="288" FontSize="22" Grid.ColumnSpan="4" Grid.RowSpan="2" RenderTransformOrigin="0.477,0.281"/>
 
         <Label 
-            Grid.Column="7" Grid.Row="5" Content="Логин" 
+            Grid.Column="12" Grid.Row="5" Content="Логин" 
             HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
-            FontFamily="Segoe Script" FontSize="18" Height="67"/>
+            FontFamily="Segoe Script" FontSize="18" Height="67" Margin="0,1,0,0" RenderTransformOrigin="0.198,0.597"/>
 
         <TextBox 
-            x:Name="Password" Grid.Column="6" Grid.Row="7"
+            x:Name="Password" Grid.Column="11" Grid.Row="7"
             HorizontalAlignment="Left" 
-            Margin="0,23,0,0" 
+            Margin="0,22,0,1" 
             Height="45" Width="288" FontSize="22" Grid.ColumnSpan="3"/>
 
         <Label 
-            Grid.Column="7" Grid.Row="7" Content="Пароль" 
+            Grid.Column="12" Grid.Row="7" Content="Пароль" 
             HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
-            FontFamily="Segoe Script" FontSize="18" Height="67"/>
+            FontFamily="Segoe Script" FontSize="18" Height="67" Grid.ColumnSpan="2" Margin="1,1,0,0"/>
 
-        <Image Source="logo.png" 
+        <Image Source="..//Images/policlinik.jpg" 
+               Grid.Column="4" Grid.ColumnSpan="3" 
+               Grid.Row="4" Grid.RowSpan="5" Margin="0,65,0,4"/>
+
+        <Image Source="..//Images/logo.png" 
                Grid.Column="3" Grid.ColumnSpan="3" 
                Grid.RowSpan="2"/>
 
         <Label 
-            Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="0" 
+            Grid.Row="0"
+            Grid.Column="5" Grid.ColumnSpan="4"  
             Content="Портал здравохранения жизни" 
             FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
-            HorizontalAlignment="Left" VerticalAlignment="Bottom"
-            />
+            HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
         <Label 
-            Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="1" 
+            Grid.Row="1"
+            Grid.Column="5" Grid.ColumnSpan="3"  
             Content="Республики Майнкрафта"
             FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
-            HorizontalAlignment="Left" VerticalAlignment="Top" 
-            />
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,18,0" />
+
+        <Label 
+            Grid.Row="4"
+            Grid.Column="4" Grid.ColumnSpan="6"
+            Content="Городская больница №1 района Березки"
+            FontSize="26" FontFamily="Tahoma"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
+        <Label 
+            Grid.Row="5"
+            Grid.Column="7" Grid.ColumnSpan="4"
+            Content="Информация о больнице"
+            FontSize="24" FontFamily="Tahoma" Foreground="#FF00B1F0"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+
+        <Label 
+            Grid.Row="6"
+            Grid.Column="7" Grid.ColumnSpan="2"
+            Content="Полное название:"
+            FontSize="16" FontFamily="Tahoma" Foreground="#FFAAAAAA"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <Label 
+            Grid.Row="6"
+            Grid.Column="8" Grid.ColumnSpan="6"
+            Content="Государственное автономное учреждение здравоохранения"
+            FontSize="16" FontFamily="Tahoma" 
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,20,0,0"/>
+
+        <Label 
+            Grid.Row="7"
+            Grid.Column="7" Grid.ColumnSpan="2"
+            Content="Сокращенное название:"
+            FontSize="16" FontFamily="Tahoma" Foreground="#FFAAAAAA"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <Label 
+            Grid.Row="7"
+            Grid.Column="8" Grid.ColumnSpan="6"
+            Content="Государственное автономное учреждение здравоохранения"
+            FontSize="16" FontFamily="Tahoma" 
+            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="77,21,0,0"/>
     </Grid>
 </Page>
