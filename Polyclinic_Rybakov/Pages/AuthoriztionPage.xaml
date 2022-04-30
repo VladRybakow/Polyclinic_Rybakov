@@ -63,9 +63,40 @@
             Fill="#00B1F0"
             />
 
+        <Rectangle 
+            Grid.Column="3"
+            Grid.Row="2" Grid.RowSpan="13"
+            Fill="#00B1F0"
+            />
+
+        <Rectangle 
+            Grid.Column="11"
+            Grid.Row="2" Grid.RowSpan="13"
+            Fill="#00B1F0"
+            />
+
+        <Button
+            x:Name="Recording"
+            Grid.Column="4" Grid.Row="2"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="42" Width="86"
+            FontFamily="Segoe Script" FontSize="10" 
+            BorderBrush="Black" Background="White" Margin="0,11,4,0" >
+            <Button.Content>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                    Запись к врачу
+                </TextBlock>
+            </Button.Content>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
         <Button
             Content="Авторизация"
-            Grid.Column="9" Grid.Row="2"
+            Grid.Column="10" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Height="42" Width="86" Click="AuthButton_Click"
             FontFamily="Segoe Script" FontSize="10"
@@ -77,45 +108,9 @@
             </Button.Resources>
         </Button>
 
-        <Button
-            Content="Регистрация"
-            Grid.Column="10" Grid.Row="2"
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="42" Width="86" Click="AuthButton_Click"
-            FontFamily="Segoe Script" FontSize="10" 
-            BorderBrush="Black" Background="White" Margin="0,11,4,0" >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <TextBox 
-            x:Name="Login" Grid.Column="10" Grid.Row="5"
-            HorizontalAlignment="Left"
-            Margin="95,24,0,67" 
-            Height="45" Width="288" FontSize="22" Grid.ColumnSpan="4" Grid.RowSpan="2" RenderTransformOrigin="0.477,0.281"/>
-
-        <Label 
-            Grid.Column="12" Grid.Row="5" Content="Логин" 
-            HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
-            FontFamily="Segoe Script" FontSize="18" Height="67" Margin="0,1,0,0" RenderTransformOrigin="0.198,0.597"/>
-
-        <TextBox 
-            x:Name="Password" Grid.Column="11" Grid.Row="7"
-            HorizontalAlignment="Left" 
-            Margin="0,22,0,1" 
-            Height="45" Width="288" FontSize="22" Grid.ColumnSpan="3"/>
-
-        <Label 
-            Grid.Column="12" Grid.Row="7" Content="Пароль" 
-            HorizontalAlignment="Left" VerticalAlignment="Top" Width="96"
-            FontFamily="Segoe Script" FontSize="18" Height="67" Grid.ColumnSpan="2" Margin="1,1,0,0"/>
-
         <Image Source="..//Images/policlinik.jpg" 
                Grid.Column="4" Grid.ColumnSpan="3" 
-               Grid.Row="4" Grid.RowSpan="5" Margin="0,65,0,4"/>
+               Grid.Row="3" Grid.RowSpan="5" Margin="0,65,0,4"/>
 
         <Image Source="..//Images/logo.png" 
                Grid.Column="3" Grid.ColumnSpan="3" 
@@ -136,45 +131,121 @@
             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,18,0" />
 
         <Label 
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="4" Grid.ColumnSpan="6"
             Content="Городская больница №1 района Березки"
             FontSize="26" FontFamily="Tahoma"
             HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
         <Label 
-            Grid.Row="5"
+            Grid.Row="4"
             Grid.Column="7" Grid.ColumnSpan="4"
             Content="Информация о больнице"
             FontSize="24" FontFamily="Tahoma" Foreground="#FF00B1F0"
             HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
         <Label 
-            Grid.Row="6"
+            Grid.Row="5"
             Grid.Column="7" Grid.ColumnSpan="2"
             Content="Полное название:"
             FontSize="16" FontFamily="Tahoma" Foreground="#FFAAAAAA"
             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,0"/>
 
         <Label 
-            Grid.Row="6"
-            Grid.Column="8" Grid.ColumnSpan="6"
-            Content="Государственное автономное учреждение здравоохранения"
+            Grid.Row="6" Grid.RowSpan="2"
+            Grid.Column="7" Grid.ColumnSpan="4"
             FontSize="16" FontFamily="Tahoma" 
-            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,20,0,0"/>
+            HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label.Content>
+                <TextBlock TextWrapping="Wrap">
+                    Государственное автономное учреждение здравоохранения
+                    "Городская поликлиника №1" г. Казани
+                </TextBlock>
+            </Label.Content>
+        </Label>
 
         <Label 
-            Grid.Row="7"
-            Grid.Column="7" Grid.ColumnSpan="2"
+            Grid.Row="8"
+            Grid.Column="4" Grid.ColumnSpan="2"
             Content="Сокращенное название:"
             FontSize="16" FontFamily="Tahoma" Foreground="#FFAAAAAA"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            HorizontalAlignment="Left" VerticalAlignment="Top" />
 
         <Label 
-            Grid.Row="7"
-            Grid.Column="8" Grid.ColumnSpan="6"
-            Content="Государственное автономное учреждение здравоохранения"
+            Grid.Row="8"
+            Grid.Column="6" Grid.ColumnSpan="5"
+            Content="Майнкрафтовская поликлиника №1"
             FontSize="16" FontFamily="Tahoma" 
-            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="77,21,0,0"/>
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="9"
+            Grid.Column="4" Grid.ColumnSpan="2"
+            Content="Электронная почта:"
+            FontSize="16" FontFamily="Tahoma" Foreground="#FFAAAAAA"
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="9"
+            Grid.Column="6" Grid.ColumnSpan="5"
+            Content="qwe@gmail.com"
+            FontSize="16" FontFamily="Tahoma" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="10"
+            Grid.Column="4" Grid.ColumnSpan="2"
+            Content="Телефон приемной:"
+            FontSize="16" FontFamily="Tahoma" Foreground="#FFAAAAAA"
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="10"
+            Grid.Column="6" Grid.ColumnSpan="5"
+            Content="8984739573950;   Колл-центра 8 (845) 535 20 05"
+            FontSize="16" FontFamily="Tahoma" 
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="11"
+            Grid.Column="4" Grid.ColumnSpan="3"
+            Content="Характеристики поликлиники:"
+            FontSize="14" FontFamily="Tahoma" Foreground="#FFAAAAAA"
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="11" Grid.RowSpan="3"
+            Grid.Column="6" Grid.ColumnSpan="5"
+            FontSize="16" FontFamily="Tahoma" 
+            HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label.Content>
+                <TextBlock TextWrapping="Wrap">
+                    ГАУЗ "Городская поликлиника №1 г.Казани оказывает первичную
+                    медико-санитарную помощь жителям Советского района г.Казани с 1983 года.
+                    На сегодяшний день количество прикрепленного населения составляет 45 653 человека.
+                    В своем составе поликлиника имеет: 
+                    Основное здание по адресу ул. Кирпичная, 7 
+                    Круглосуточный травмологический пункт по адресу ул. Аделя Кутуя, 48.
+                </TextBlock>
+            </Label.Content>
+         </Label>
+
+        <Label 
+            Grid.Row="13" Grid.Column="4"
+            Content="Адрес:"
+            FontSize="14" FontFamily="Tahoma" Foreground="#FFAAAAAA"
+            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label 
+            Grid.Row="13"
+            Grid.Column="6" Grid.ColumnSpan="5"
+            FontSize="16" FontFamily="Tahoma" 
+            HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label.Content>
+                <TextBlock TextWrapping="Wrap">
+                    420083, Республики Майкрафта, г. Большие Березки, ул. MainWindows
+                </TextBlock>
+            </Label.Content>
+        </Label>
     </Grid>
 </Page>

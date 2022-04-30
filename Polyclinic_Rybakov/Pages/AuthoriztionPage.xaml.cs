@@ -18,10 +18,6 @@ namespace Polyclinic_Rybakov.Pages
 {
     public partial class AuthoriztionPage : Page
     {
-        public static PolyclinicEntities dbPractik = new PolyclinicEntities();
-        public static User authUser;
-
-        public static int aut { get; set; }
         public AuthoriztionPage()
         {
             InitializeComponent();
@@ -29,52 +25,54 @@ namespace Polyclinic_Rybakov.Pages
 
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var user in AuthoriztionPage.dbPractik.User)
-            {
-                if (user.Login == Login.Text.Trim())
-                {
-                    if (user.Password == Password.Text.Trim() && user.Id_user != 1)
-                    {
-                        MessageBox.Show($"Здравствуйте, пользователь: {user.Login}");
-                        AuthoriztionPage.authUser = user;
-                        NavigationService.Navigate(new Client());
-                    }
-                    if (user.Password == Password.Text.Trim() && user.Id_user == 1)
-                    {
-                        MessageBox.Show($"Вход с правами администратора: {user.Login}");
-                        AuthoriztionPage.authUser = user;
-                        NavigationService.Navigate(new Emp());
-                    }
-                    aut = user.Id_user;
-                }
-            }
+            AuthorizationWindow taskWindow = new AuthorizationWindow();
+            taskWindow.Show();
+            //foreach (var user in AuthoriztionPage.dbPractik.User)
+            //{
+            //    if (user.Login == Login.Text.Trim())
+            //    {
+            //        if (user.Password == Password.Text.Trim() && user.Id_user != 1)
+            //        {
+            //            MessageBox.Show($"Здравствуйте, пользователь: {user.Login}");
+            //            AuthoriztionPage.authUser = user;
+            //            NavigationService.Navigate(new Client());
+            //        }
+            //        if (user.Password == Password.Text.Trim() && user.Id_user == 1)
+            //        {
+            //            MessageBox.Show($"Вход с правами администратора: {user.Login}");
+            //            AuthoriztionPage.authUser = user;
+            //            NavigationService.Navigate(new Emp());
+            //        }
+            //        aut = user.Id_user;
+            //    }
+            //}
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
+            //User user = new User();
 
-            try
-            {
-                var qwe = AuthoriztionPage.dbPractik.User.FirstOrDefault(a => a.Login == Login.Text.Trim());
-                if (qwe != null)
-                {
-                    MessageBox.Show("Ошибка с вводом данных/такой пароль уже существует");
-                }
-                else
-                {
-                    user.Login = Login.Text.Trim();
-                    user.Password = Password.Text.Trim();
-                    user.Id_user = 2;
-                }
+            //try
+            //{
+            //    var qwe = AuthoriztionPage.dbPractik.User.FirstOrDefault(a => a.Login == Login.Text.Trim());
+            //    if (qwe != null)
+            //    {
+            //        MessageBox.Show("Ошибка с вводом данных/такой пароль уже существует");
+            //    }
+            //    else
+            //    {
+            //        user.Login = Login.Text.Trim();
+            //        user.Password = Password.Text.Trim();
+            //        user.Id_user = 2;
+            //    }
 
-                AuthoriztionPage.dbPractik.User.Add(user);
-                dbPractik.SaveChanges();
-            }
-            catch
-            {
-                MessageBox.Show("Такой логин уже существует");
-            }
+            //    AuthoriztionPage.dbPractik.User.Add(user);
+            //    dbPractik.SaveChanges();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Такой логин уже существует");
+            //}
         }
     }
 }
