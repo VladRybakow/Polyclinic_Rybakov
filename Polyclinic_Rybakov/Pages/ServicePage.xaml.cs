@@ -15,16 +15,14 @@ using System.Windows.Shapes;
 
 namespace Polyclinic_Rybakov.Pages
 {
-    public partial class Client : Page
+    /// <summary>
+    /// Логика взаимодействия для ServicePage.xaml
+    /// </summary>
+    public partial class ServicePage : Page
     {
-        public Client()
+        public ServicePage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ServicePage());
         }
     }
 }

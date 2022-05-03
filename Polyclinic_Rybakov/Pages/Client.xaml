@@ -61,6 +61,16 @@
             Grid.Row="3" 
             Fill="#00B1F0"/>
 
+        <Rectangle 
+            Grid.Column="0"
+            Grid.RowSpan="15"
+            Fill="#00B1F0"/>
+
+        <Rectangle 
+            Grid.Column="15"
+            Grid.RowSpan="15"
+            Fill="#00B1F0"/>
+
         <Label 
             Grid.Row="3"
             Grid.Column="4" Grid.ColumnSpan="6"  
@@ -79,7 +89,7 @@
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Height="130" Width="193"
             FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            BorderBrush="Black" Background="White" Margin="0,0,95,0" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15" />

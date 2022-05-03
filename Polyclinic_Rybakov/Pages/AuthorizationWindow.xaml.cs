@@ -40,14 +40,13 @@ namespace Polyclinic_Rybakov.Pages
                     {
                         MessageBox.Show($"Здравствуйте, пользователь: {user.Login}");
                         AuthorizationWindow.authUser = user;
-                        Close();
-                        //NavigationService.Navigate(new Page.Client());
+                        this.Close();
                     }
                     if (user.Password == Password.Text.Trim() && user.Id_user == 1)
                     {
                         MessageBox.Show($"Вход с правами администратора: {user.Login}");
                         AuthorizationWindow.authUser = user;
-                        Close();
+                        this.Close();
                         //NavigationService.Navigate(new Emp());
                     }
                     aut = user.Id_user;

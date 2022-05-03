@@ -224,7 +224,7 @@
                     Круглосуточный травмологический пункт по адресу ул. Аделя Кутуя, 48.
                 </TextBlock>
             </Label.Content>
-         </Label>
+        </Label>
 
         <Label 
             Grid.Row="13" Grid.Column="4"
@@ -243,5 +243,19 @@
                 </TextBlock>
             </Label.Content>
         </Label>
+
+        <Button
+            Content="Exit"
+            Grid.Column="14"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="45" Width="45"
+            FontSize="10" Click="Exit_Click"
+            BorderBrush="Black" Background="White" Margin="0,9,25,0" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8" />
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Page>

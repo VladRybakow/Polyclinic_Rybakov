@@ -42,5 +42,10 @@ namespace Polyclinic_Rybakov.Pages
                 MessageBox.Show("Сначала зарегистрируйтесь");
             }
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
