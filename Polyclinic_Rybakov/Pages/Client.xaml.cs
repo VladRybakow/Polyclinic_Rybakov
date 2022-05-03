@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Polyclinic_Rybakov.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для Client.xaml
-    /// </summary>
     public partial class Client : Page
     {
         public Client()

@@ -5,10 +5,161 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Polyclinic_Rybakov.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1024" d:DesignWidth="1440"
+      MinHeight="640" MinWidth="820"
       Title="Client">
 
     <Grid Background="White">
-        <Label Content="болеющий" FontSize="50" Margin="250,190,190,190"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Rectangle
+            Grid.ColumnSpan="15"
+            Grid.RowSpan="15"
+            Fill="#CCEEFF"/>
+
+        <Rectangle 
+            Grid.ColumnSpan="15"
+            Grid.RowSpan="12" Grid.Row="3"
+            Fill="White"/>
+
+        <Rectangle 
+            Grid.ColumnSpan="15"
+            Grid.Row="3" 
+            Fill="#00B1F0"/>
+
+        <Label 
+            Grid.Row="3"
+            Grid.Column="4" Grid.ColumnSpan="6"  
+            Content="Выбор услуг из предоставленных специалистов" 
+            FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
+            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+        <Image Source="..//Images/logo.png" 
+               Grid.Column="6" Grid.ColumnSpan="3" 
+               Grid.RowSpan="3"/>
+
+        <Button
+            Content="Терапевт"
+            Grid.Row="5" Grid.RowSpan="2"
+            Grid.Column="5" Grid.ColumnSpan="3" 
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="130" Width="193"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            Content="Хирург"
+            Grid.Row="5" Grid.RowSpan="2"
+            Grid.Column="8" Grid.ColumnSpan="3" 
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="130" Width="193"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            Content="Окулист"
+            Grid.Row="8" Grid.RowSpan="2"
+            Grid.Column="5" Grid.ColumnSpan="3" 
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="130" Width="193"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            Content="Дерматолог"
+            Grid.Row="8" Grid.RowSpan="2"
+            Grid.Column="8" Grid.ColumnSpan="3" 
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="130" Width="193"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            Content="Психиатор"
+            Grid.Row="11" Grid.RowSpan="2"
+            Grid.Column="5" Grid.ColumnSpan="3" 
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="130" Width="193"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            Content="Диетолог"
+            Grid.Row="11" Grid.RowSpan="2"
+            Grid.Column="8" Grid.ColumnSpan="3" 
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="130" Width="193"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Page>
