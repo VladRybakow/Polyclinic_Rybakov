@@ -75,7 +75,7 @@
             x:Name="Recording"
             Grid.Column="4" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="42" Width="86"
+            Height="42" Width="86" Visibility="Hidden"
             FontFamily="Segoe Script" FontSize="10" 
             BorderBrush="Black" Background="White" Margin="0,11,4,0" Click="Recording_Click" >
             <Button.Content>
@@ -91,8 +91,28 @@
         </Button>
 
         <Button
+            x:Name="admin"
+            Grid.Column="5" Grid.Row="2"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="42" Width="86" Visibility="Hidden"
+            FontFamily="Segoe Script" FontSize="10" 
+            BorderBrush="Black" Background="White" Margin="0,11,4,0" Click="admin_Click" >
+            <Button.Content>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                    Авторизация за админа
+                </TextBlock>
+            </Button.Content>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            x:Name="LoginInBtn"
             Content="Авторизация"
-            Grid.Column="10" Grid.Row="2"
+            Grid.Column="7" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Height="42" Width="86" Click="AuthButton_Click"
             FontFamily="Segoe Script" FontSize="10"

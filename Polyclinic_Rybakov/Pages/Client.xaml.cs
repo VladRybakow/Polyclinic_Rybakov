@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Polyclinic_Rybakov.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace Polyclinic_Rybakov.Pages
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ServiceBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ServicePage());
         }

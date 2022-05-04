@@ -18,7 +18,7 @@ namespace Polyclinic_Rybakov.Pages
 {
     public partial class AuthoriztionPage : Page
     {
-        public int yy = AuthorizationWindow.authOk;
+        public static User authUser;
         public AuthoriztionPage()
         {
             InitializeComponent();
@@ -28,24 +28,39 @@ namespace Polyclinic_Rybakov.Pages
         {
             AuthorizationWindow taskWindow = new AuthorizationWindow();
             taskWindow.Show();
+            taskWindow.Closed += (s, eventarg) =>
+            {
+                this.ReloadPage();
+            };
         }
 
         public void Recording_Click(object sender, RoutedEventArgs e)
         {
-            yy = AuthorizationWindow.authOk;
-            if (yy > 2)
-            {
-                NavigationService.Navigate(new Client());
-            }
-            else
-            {
-                MessageBox.Show("Сначала зарегистрируйтесь");
-            }
+            NavigationService.Navigate(new Client());
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void admin_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Emp());
+        }
+        public void ReloadPage() 
+        {
+            if (authUser.Id_user == 1)
+            {
+                LoginInBtn.Visibility = Visibility.Collapsed;
+                Recording.Visibility = Visibility.Visible;
+                admin.Visibility = Visibility.Visible;
+            }
+            if (authUser.Id_user != 1)
+            {
+                LoginInBtn.Visibility = Visibility.Collapsed;
+                Recording.Visibility = Visibility.Visible;
+            }
         }
     }
 }

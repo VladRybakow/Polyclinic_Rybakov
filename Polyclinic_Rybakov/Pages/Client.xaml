@@ -87,9 +87,9 @@
             Grid.Row="5" Grid.RowSpan="2"
             Grid.Column="5" Grid.ColumnSpan="3" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193"
+            Height="130" Width="193" Click="ServiceBTN_Click"
             FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0" Click="Button_Click">
+            BorderBrush="Black" Background="White" Margin="0,0,95,0">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15" />
@@ -102,7 +102,7 @@
             Grid.Row="5" Grid.RowSpan="2"
             Grid.Column="8" Grid.ColumnSpan="3" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193"
+            Height="130" Width="193" Click="ServiceBTN_Click"
             FontFamily="Segoe Script" FontSize="22"
             BorderBrush="Black" Background="White" Margin="0,0,95,0">
             <Button.Resources>
@@ -117,7 +117,7 @@
             Grid.Row="8" Grid.RowSpan="2"
             Grid.Column="5" Grid.ColumnSpan="3" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193"
+            Height="130" Width="193" Click="ServiceBTN_Click"
             FontFamily="Segoe Script" FontSize="22"
             BorderBrush="Black" Background="White" Margin="0,0,95,0">
             <Button.Resources>
@@ -132,7 +132,7 @@
             Grid.Row="8" Grid.RowSpan="2"
             Grid.Column="8" Grid.ColumnSpan="3" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193"
+            Height="130" Width="193" Click="ServiceBTN_Click"
             FontFamily="Segoe Script" FontSize="22"
             BorderBrush="Black" Background="White" Margin="0,0,95,0">
             <Button.Resources>
@@ -147,7 +147,7 @@
             Grid.Row="11" Grid.RowSpan="2"
             Grid.Column="5" Grid.ColumnSpan="3" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193"
+            Height="130" Width="193" Click="ServiceBTN_Click"
             FontFamily="Segoe Script" FontSize="22"
             BorderBrush="Black" Background="White" Margin="0,0,95,0">
             <Button.Resources>
@@ -162,7 +162,7 @@
             Grid.Row="11" Grid.RowSpan="2"
             Grid.Column="8" Grid.ColumnSpan="3" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193"
+            Height="130" Width="193" Click="ServiceBTN_Click"
             FontFamily="Segoe Script" FontSize="22"
             BorderBrush="Black" Background="White" Margin="0,0,95,0">
             <Button.Resources>

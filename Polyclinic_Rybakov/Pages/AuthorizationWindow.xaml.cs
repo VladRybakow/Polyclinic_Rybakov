@@ -22,6 +22,7 @@ namespace Polyclinic_Rybakov.Pages
         public AuthoriztionPage auth = new AuthoriztionPage();
         public static User authUser;
         public static int authOk = 1;
+        public static int authadm = 1;
         public static int aut { get; set; }
 
         public AuthorizationWindow()
@@ -33,23 +34,11 @@ namespace Polyclinic_Rybakov.Pages
         {
             foreach (var user in AuthorizationWindow.dbPractik.User)
             {
-                if (user.Login == Login.Text.Trim())
+                if (user.Login == Login.Text.Trim() && user.Password == Password.Text.Trim())
                 {
 
-                    if (user.Password == Password.Text.Trim() && user.Id_user != 1)
-                    {
-                        MessageBox.Show($"Здравствуйте, пользователь: {user.Login}");
-                        AuthorizationWindow.authUser = user;
-                        this.Close();
-                    }
-                    if (user.Password == Password.Text.Trim() && user.Id_user == 1)
-                    {
-                        MessageBox.Show($"Вход с правами администратора: {user.Login}");
-                        AuthorizationWindow.authUser = user;
-                        this.Close();
-                        //NavigationService.Navigate(new Emp());
-                    }
-                    aut = user.Id_user;
+                    AuthoriztionPage.authUser = user;
+                    this.Close();
                 }
             }
             authOk = authOk + 2;

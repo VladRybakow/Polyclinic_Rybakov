@@ -24,5 +24,10 @@ namespace Polyclinic_Rybakov.Pages
         {
             InitializeComponent();
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Client());
+        }
     }
 }
