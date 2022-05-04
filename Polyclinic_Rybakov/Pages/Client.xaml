@@ -74,7 +74,7 @@
         <Label 
             Grid.Row="3"
             Grid.Column="5" Grid.ColumnSpan="5"  
-            Content="ВЫберите нужного вам доктора" 
+            Content="Выберите нужного вам доктора" 
             FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
             HorizontalAlignment="Center" VerticalAlignment="Center" Margin="62,14,76,16"/>
 
@@ -97,94 +97,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<Button
-            Content="Терапевт"
-            Grid.Row="5" Grid.RowSpan="2"
-            Grid.Column="5" Grid.ColumnSpan="3" 
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193" Click="ServiceBTN_Click"
-            FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button
-            Content="Хирург"
-            Grid.Row="5" Grid.RowSpan="2"
-            Grid.Column="8" Grid.ColumnSpan="3" 
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193" Click="ServiceBTN_Click"
-            FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button
-            Content="Окулист"
-            Grid.Row="8" Grid.RowSpan="2"
-            Grid.Column="5" Grid.ColumnSpan="3" 
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193" Click="ServiceBTN_Click"
-            FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button
-            Content="Дерматолог"
-            Grid.Row="8" Grid.RowSpan="2"
-            Grid.Column="8" Grid.ColumnSpan="3" 
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193" Click="ServiceBTN_Click"
-            FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button
-            Content="Психиатор"
-            Grid.Row="11" Grid.RowSpan="2"
-            Grid.Column="5" Grid.ColumnSpan="3" 
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193" Click="ServiceBTN_Click"
-            FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button
-            Content="Диетолог"
-            Grid.Row="11" Grid.RowSpan="2"
-            Grid.Column="8" Grid.ColumnSpan="3" 
-            HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="130" Width="193" Click="ServiceBTN_Click"
-            FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,95,0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>-->
     </Grid>
 </Page>
