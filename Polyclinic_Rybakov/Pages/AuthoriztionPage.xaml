@@ -91,8 +91,27 @@
         </Button>
 
         <Button
-            x:Name="admin"
+            x:Name="emp"
             Grid.Column="5" Grid.Row="2"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="42" Width="86" Visibility="Hidden"
+            FontFamily="Segoe Script" FontSize="10" 
+            BorderBrush="Black" Background="White" Margin="0,11,4,0" Click="admin_Click" >
+            <Button.Content>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                    Авторизация за доктора
+                </TextBlock>
+            </Button.Content>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            x:Name="admin"
+            Grid.Column="6" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Height="42" Width="86" Visibility="Hidden"
             FontFamily="Segoe Script" FontSize="10" 

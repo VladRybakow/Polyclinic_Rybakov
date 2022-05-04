@@ -55,6 +55,7 @@ namespace Polyclinic_Rybakov.Pages
                 LoginInBtn.Visibility = Visibility.Collapsed;
                 Recording.Visibility = Visibility.Visible;
                 admin.Visibility = Visibility.Visible;
+                emp.Visibility = Visibility.Visible;
             }
             if (authUser.Id_user != 1)
             {

@@ -21,8 +21,6 @@ namespace Polyclinic_Rybakov.Pages
         public static PolyclinicEntities dbPractik = new PolyclinicEntities();
         public AuthoriztionPage auth = new AuthoriztionPage();
         public static User authUser;
-        public static int authOk = 1;
-        public static int authadm = 1;
         public static int aut { get; set; }
 
         public AuthorizationWindow()
@@ -41,7 +39,6 @@ namespace Polyclinic_Rybakov.Pages
                     this.Close();
                 }
             }
-            authOk = authOk + 2;
         }
 
         private void RegistButton_Click(object sender, RoutedEventArgs e)

@@ -62,6 +62,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DB\Application.cs">
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
     </Compile>
@@ -89,10 +97,20 @@
     <Compile Include="DB\Polyclinic.cs">
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\PolyclinicModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyclinicModel.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="DB\PolyclinicModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PolyclinicModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Roles.cs">
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
@@ -100,25 +118,11 @@
     <Compile Include="DB\Service.cs">
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sp_helpdiagrams_Result.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\sysdiagrams.cs">
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\User.cs">
       <DependentUpon>PolyclinicModel.tt</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -152,16 +156,6 @@
     <Compile Include="Pages\AuthoriztionPage.xaml.cs">
       <DependentUpon>AuthoriztionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DB\PolyclinicModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyclinicModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\PolyclinicModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Client.xaml.cs">
       <DependentUpon>Client.xaml</DependentUpon>
     </Compile>
@@ -192,10 +186,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PolyclinicModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
     <None Include="DB\PolyclinicModel.edmx.diagram">
       <DependentUpon>PolyclinicModel.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,16 +199,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\PolyclinicModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PolyclinicModel.Context.cs</LastGenOutput>
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DB\PolyclinicModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
-      <LastGenOutput>PolyclinicModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Images\policlinik.jpg" />
     <Resource Include="Images\logo.png" />
   </ItemGroup>
@@ -222,5 +206,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="DB\PolyclinicModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
+      <LastGenOutput>PolyclinicModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\PolyclinicModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
+      <LastGenOutput>PolyclinicModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,11 +21,13 @@ namespace Polyclinic_Rybakov.Pages
         public Client()
         {
             InitializeComponent();
+            DoctorLV.ItemsSource = MainWindow.dbPractik.Doctor.ToList();
         }
 
-        private void ServiceBTN_Click(object sender, RoutedEventArgs e)
+        private void DoctorLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(new ServicePage());
+            var gg = DoctorLV.SelectedItem as Doctor;
+            NavigationService.Navigate(new ServicePage(gg));
         }
     }
 }

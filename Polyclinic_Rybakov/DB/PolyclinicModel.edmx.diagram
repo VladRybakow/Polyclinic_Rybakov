@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="940703c2711e407dbc157ba03f3df7e1" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="PolyclinicModel.Application" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Business" Width="1.5" PointX="10.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Cabinet" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Conclusion" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Department" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Doctor" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.DoctorType" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Employees" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Polyclinic" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Roles" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.Service" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PolyclinicModel.User" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+      <Diagram DiagramId="8e3f90ec901a49f8a715df740cbcce70" Name="Diagram1">
+        <EntityTypeShape EntityType="PolyclinicModel.Application" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Business" Width="1.5" PointX="10.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Cabinet" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Conclusion" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Department" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Doctor" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.DoctorType" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Employees" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Polyclinic" Width="1.5" PointX="1.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Roles" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.Service" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PolyclinicModel.User" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
         <AssociationConnector Association="PolyclinicModel.FK_Application_Cabinet" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Application_Doctor" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Application_Service" ManuallyRouted="false" />
@@ -25,13 +25,7 @@
         <AssociationConnector Association="PolyclinicModel.FK_Business_Application" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Conclusion_Application" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Business_Conclusion" ManuallyRouted="false" />
-        <AssociationConnector Association="PolyclinicModel.FK_Business_User" ManuallyRouted="true" >
-          <ConnectorPoint PointX="4.5" PointY="16.011894472656248" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="16.011894472656248" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="16.011894472656248" />
-          <ConnectorPoint PointX="11.5" PointY="16.011894472656248" />
-          <ConnectorPoint PointX="11.5" PointY="11.807190755208334" />
-        </AssociationConnector>
+        <AssociationConnector Association="PolyclinicModel.FK_Business_User" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Cabinet_Department" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Service_Cabinet" ManuallyRouted="false" />
         <AssociationConnector Association="PolyclinicModel.FK_Department_Polyclinic" ManuallyRouted="false" />

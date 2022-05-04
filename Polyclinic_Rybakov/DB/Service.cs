@@ -22,7 +22,6 @@ namespace Polyclinic_Rybakov.DB
         public int Id_service { get; set; }
         public string Name { get; set; }
         public Nullable<double> Price { get; set; }
-        public Nullable<System.TimeSpan> Time { get; set; }
         public Nullable<int> Id_cabinet { get; set; }
         public Nullable<int> Id_doctor { get; set; }
     
