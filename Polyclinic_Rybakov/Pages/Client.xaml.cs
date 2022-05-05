@@ -29,5 +29,10 @@ namespace Polyclinic_Rybakov.Pages
             var gg = DoctorLV.SelectedItem as Doctor;
             NavigationService.Navigate(new ServicePage(gg));
         }
+
+        private void ReviewBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ReviewPage());
+        }
     }
 }

@@ -82,6 +82,20 @@
                Grid.Column="6" Grid.ColumnSpan="3" 
                Grid.RowSpan="3"/>
 
+        <Button
+            Content="Проверка"
+            Grid.Row="3"
+            Grid.Column="10" Grid.ColumnSpan="2" 
+            HorizontalAlignment="Right" Width="191"
+            FontFamily="Segoe Script" FontSize="22"
+            BorderBrush="Black" Background="White" Click="ReviewBTN_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
         <ListView 
             Grid.Row="4" Grid.RowSpan="12"
             Grid.Column="1" Grid.ColumnSpan="13" 

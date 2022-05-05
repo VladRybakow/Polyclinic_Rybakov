@@ -26,6 +26,7 @@ namespace Polyclinic_Rybakov.Pages
         public AuthorizationWindow()
         {
             InitializeComponent();
+
         }
 
         private void AuthButton_Click(object sender, RoutedEventArgs e)
@@ -34,6 +35,7 @@ namespace Polyclinic_Rybakov.Pages
             {
                 if (user.Login == Login.Text.Trim() && user.Password == Password.Text.Trim())
                 {
+                    authUser = user;
                     AuthoriztionPage.authUser = user;
                     this.Close();
                 }

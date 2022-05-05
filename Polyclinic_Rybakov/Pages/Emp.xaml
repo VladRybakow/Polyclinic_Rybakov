@@ -74,10 +74,10 @@
 
         <Label 
             Grid.Row="3"
-            Grid.Column="6" Grid.ColumnSpan="5"  
-            Content="Проверка на запись" 
+            Grid.Column="6" Grid.ColumnSpan="3"  
+            Content="Выберите себя" 
             FontSize="24" FontWeight="Bold" FontFamily="Segoe Script"
-            HorizontalAlignment="Left" VerticalAlignment="Center" />
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="46,0,0,23" />
 
         <Image Source="..//Images/logo.png" 
                Grid.Column="6" Grid.ColumnSpan="3" 
@@ -86,17 +86,18 @@
         <ListView 
             Grid.Row="4" Grid.RowSpan="12"
             Grid.Column="2" Grid.ColumnSpan="11" 
-            x:Name="RER">
+            x:Name="Bid" SelectionChanged="Bid_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock
-                            Text="1"/>
+                            Text="{Binding FullName}"/>
                         <TextBlock 
-                            Text="2"/>
+                            Text="{Binding DoctorType.Name}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
     </Grid>
 </Page>

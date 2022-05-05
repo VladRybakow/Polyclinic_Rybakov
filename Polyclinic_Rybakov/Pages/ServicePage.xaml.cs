@@ -48,33 +48,26 @@ namespace Polyclinic_Rybakov.Pages
 
         private void AppointmentBTN_Click(object sender, RoutedEventArgs e)
         {
-            //Applicationsss applicationsss = new Applicationsss();
+            var ser = ServiceCB.SelectedItem as Service;
+            Applicationsss applicationsss = new Applicationsss();
 
-            //try
-            //{
-            //    var rer = ServicePage.dbPractik.Applicationsss.FirstOrDefault(a => a.Id_application.ToString() == Cabinet.Text.Trim());
+            try
+            {
+                applicationsss.Id_service = ser.Id_service;
+                applicationsss.Id_cabinet = ser.Id_cabinet;
+                applicationsss.Id_doctor = ser.Id_doctor;
+                applicationsss.Id_user = 17;
+                applicationsss.Status = Rt.Text;
+                applicationsss.Data = DateTime.Now;
+                ServicePage.dbPractik.Applicationsss.Add(applicationsss);
+                dbPractik.SaveChanges();
+                MessageBox.Show("Заявка отправлена");
+            }
 
-            //    if (rer != null)
-            //    {
-            //        MessageBox.Show("AAAAAAAAAAAA");
-            //    }
-            //    else
-            //    {
-            //        applicationsss.Id_cabinet = service.Cabinet.Id_cabinet;
-            //        applicationsss.Id_doctor = service.Doctor.Id_doctor;
-
-            //        ServicePage.dbPractik.Applicationsss.Add(applicationsss);
-            //        dbPractik.SaveChanges();
-            //        MessageBox.Show("Заявка отправлена");
-            //    }
-            //}
-
-            //catch
-            //{
-            //    MessageBox.Show("Ошибка с отправкой");
-            //}
-
-
+            catch
+            {
+                MessageBox.Show("Ошибка с отправкой");
+            }
         }
     }
 }

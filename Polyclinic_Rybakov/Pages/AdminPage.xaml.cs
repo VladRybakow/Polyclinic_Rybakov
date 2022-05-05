@@ -24,6 +24,8 @@ namespace Polyclinic_Rybakov.Pages
         {
             InitializeComponent();
 
+            DocRP.ItemsSource = MainWindow.dbPractik.Doctor.ToList();
+
             TypeSpec.ItemsSource = dbPractik.DoctorType.ToList();
         }
 
@@ -53,12 +55,12 @@ namespace Polyclinic_Rybakov.Pages
             }
         }
 
-        private void TypeSpec_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //var serTS = ((DoctorType)TypeSpec.SelectedItem).Id_doctorType;
-            //var spec = AdminPage.dbPractik.DoctorType.Where(c => c.Id_doctorType == serTS).FirstOrDefault();
-            
-            //TypeSpec.ItemsSource = MainWindow.dbPractik.DoctorType.Where(c => c.Id_doctorType == dt.Id_doctorType).ToList();
-        }
+        //private void DeleteBTN_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var qwe = DocRP.SelectedItem as Doctor;
+        //    AdminPage.dbPractik.Doctor.Remove(qwe);
+        //    dbPractik.SaveChanges();
+        //    DocRP.ItemsSource = MainWindow.dbPractik.Doctor.ToList();
+        //}
     }
 }

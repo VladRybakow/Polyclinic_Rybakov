@@ -101,7 +101,7 @@
 
         <ComboBox 
             x:Name="TypeSpec"
-            Grid.Row="9" SelectionChanged="TypeSpec_SelectionChanged"
+            Grid.Row="9" 
             Grid.Column="10" Grid.ColumnSpan="3"
             FontSize="16" FontFamily="Tahoma"
             HorizontalAlignment="Right" VerticalAlignment="Top" Width="287"
@@ -133,17 +133,35 @@
             </Button.Resources>
         </Button>
 
+        <!--<Button
+            Grid.Column="9" Grid.Row="10"
+            HorizontalAlignment="Right" VerticalAlignment="Top" 
+            Height="64" Width="96" Click="DeleteBTN_Click"
+            FontFamily="Segoe Script" FontSize="10"
+            BorderBrush="Black" Background="White">
+            <Button.Content>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                    Удалить сотрудника
+                </TextBlock>
+            </Button.Content>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>-->
+
         <ListView 
             Grid.Row="4" Grid.RowSpan="10"
             Grid.Column="2" Grid.ColumnSpan="6" 
-            x:Name="RER">
+            x:Name="DocRP">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock
-                            Text="1"/>
+                            Text="{Binding FullName}"/>
                         <TextBlock 
-                            Text="2"/>
+                            Text="{Binding DoctorType.Name}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
