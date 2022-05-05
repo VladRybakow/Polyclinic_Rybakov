@@ -18,18 +18,18 @@ namespace Polyclinic_Rybakov.Pages
 {
     public partial class ServicePage : Page
     {
+        public static PolyclinicEntities1 dbPractik = new PolyclinicEntities1();
+        public static Applicationsss applicationsss = new Applicationsss();
         public static Service service = new Service();
         Doctor selDoc;
-        Service ser;
         public ServicePage(Doctor doctor)
         {
             InitializeComponent();
 
             selDoc = doctor;
-
-            ServiceCB.ItemsSource = MainWindow.dbPractik.Service.Where(c => c.Id_doctor == selDoc.Id_doctor).ToList();
-
-            //Price.SelectAll = MainWindow.dbPractik.Service.Where(c => c.Id_doctor == selDoc.Id_doctor).ToList();
+            var gg = (from ser in dbPractik.Service where ser.Id_doctor == selDoc.Id_doctorType select ser).ToList();
+            ServiceCB.ItemsSource = gg;
+            ServiceCB.DisplayMemberPath = "Name";
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -37,7 +37,7 @@ namespace Polyclinic_Rybakov.Pages
             NavigationService.Navigate(new Client());
         }
          
-        private void ComboBox_Selected(object sender, SelectionChangedEventArgs e)
+        public void ComboBox_Selected(object sender, SelectionChangedEventArgs e)
         {
             var a = ((Service)ServiceCB.SelectedItem).Name;
             var service = MainWindow.dbPractik.Service.Where(x => x.Name == a).FirstOrDefault();
@@ -48,6 +48,32 @@ namespace Polyclinic_Rybakov.Pages
 
         private void AppointmentBTN_Click(object sender, RoutedEventArgs e)
         {
+            //Applicationsss applicationsss = new Applicationsss();
+
+            //try
+            //{
+            //    var rer = ServicePage.dbPractik.Applicationsss.FirstOrDefault(a => a.Id_application.ToString() == Cabinet.Text.Trim());
+
+            //    if (rer != null)
+            //    {
+            //        MessageBox.Show("AAAAAAAAAAAA");
+            //    }
+            //    else
+            //    {
+            //        applicationsss.Id_cabinet = service.Cabinet.Id_cabinet;
+            //        applicationsss.Id_doctor = service.Doctor.Id_doctor;
+
+            //        ServicePage.dbPractik.Applicationsss.Add(applicationsss);
+            //        dbPractik.SaveChanges();
+            //        MessageBox.Show("Заявка отправлена");
+            //    }
+            //}
+
+            //catch
+            //{
+            //    MessageBox.Show("Ошибка с отправкой");
+            //}
+
 
         }
     }

@@ -131,14 +131,30 @@
             HorizontalAlignment="Center" VerticalAlignment="Top"
             Height="45" Width="192" FontSize="22"/>
 
+        <Label 
+            Grid.Row="10"
+            Grid.Column="5" Grid.ColumnSpan="2"
+            Content="Описание" 
+            FontSize="26" FontFamily="Tahoma"
+            HorizontalAlignment="Center" VerticalAlignment="Top" Margin="32,0,34,0"/>
+
+        <TextBox 
+            Grid.Row="11" Grid.RowSpan="2"
+            Grid.Column="4" Grid.ColumnSpan="4" 
+            x:Name="Rt"
+            HorizontalAlignment="Center" VerticalAlignment="Top"
+            Height="131" Width="286" FontSize="22" TextWrapping="Wrap" Margin="49,0">
+
+        </TextBox>
+
         <Button
             Content="Записаться"
             Grid.Row="11"
-            Grid.Column="6" Grid.ColumnSpan="3" 
+            Grid.Column="8" Grid.ColumnSpan="2" 
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="64" Width="204" Click="AppointmentBTN_Click" 
+            Height="64" Width="191" Click="AppointmentBTN_Click" 
             FontFamily="Segoe Script" FontSize="22"
-            BorderBrush="Black" Background="White" Margin="0,0,40,0">
+            BorderBrush="Black" Background="White">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15" />

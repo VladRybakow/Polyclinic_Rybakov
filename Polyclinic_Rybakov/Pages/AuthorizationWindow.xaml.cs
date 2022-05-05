@@ -18,7 +18,7 @@ namespace Polyclinic_Rybakov.Pages
 {
     public partial class AuthorizationWindow : Window
     {
-        public static PolyclinicEntities dbPractik = new PolyclinicEntities();
+        public static PolyclinicEntities1 dbPractik = new PolyclinicEntities1();
         public AuthoriztionPage auth = new AuthoriztionPage();
         public static User authUser;
         public static int aut { get; set; }
@@ -34,7 +34,6 @@ namespace Polyclinic_Rybakov.Pages
             {
                 if (user.Login == Login.Text.Trim() && user.Password == Password.Text.Trim())
                 {
-
                     AuthoriztionPage.authUser = user;
                     this.Close();
                 }
@@ -44,6 +43,7 @@ namespace Polyclinic_Rybakov.Pages
         private void RegistButton_Click(object sender, RoutedEventArgs e)
         {
             User user = new User();
+
             try
             {
                 var qwe = AuthorizationWindow.dbPractik.User.FirstOrDefault(a => a.Login == Login.Text.Trim());

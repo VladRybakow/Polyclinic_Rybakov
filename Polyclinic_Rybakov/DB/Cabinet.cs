@@ -16,14 +16,14 @@ namespace Polyclinic_Rybakov.DB
     {
         public Cabinet()
         {
-            this.Application = new HashSet<Application>();
+            this.Applicationsss = new HashSet<Applicationsss>();
             this.Service = new HashSet<Service>();
         }
     
         public int Id_cabinet { get; set; }
         public Nullable<int> Id_department { get; set; }
     
-        public virtual ICollection<Application> Application { get; set; }
+        public virtual ICollection<Applicationsss> Applicationsss { get; set; }
         public virtual Department Department { get; set; }
         public virtual ICollection<Service> Service { get; set; }
     }

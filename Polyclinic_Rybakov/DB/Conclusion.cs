@@ -23,7 +23,7 @@ namespace Polyclinic_Rybakov.DB
         public string Description { get; set; }
         public Nullable<int> Id_application { get; set; }
     
-        public virtual Application Application { get; set; }
+        public virtual Applicationsss Applicationsss { get; set; }
         public virtual ICollection<Business> Business { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Polyclinic_Rybakov.DB
     {
         public User()
         {
-            this.Application = new HashSet<Application>();
+            this.Applicationsss = new HashSet<Applicationsss>();
             this.Business = new HashSet<Business>();
         }
     
@@ -25,7 +25,7 @@ namespace Polyclinic_Rybakov.DB
         public string Login { get; set; }
         public string Password { get; set; }
     
-        public virtual ICollection<Application> Application { get; set; }
+        public virtual ICollection<Applicationsss> Applicationsss { get; set; }
         public virtual ICollection<Business> Business { get; set; }
     }
 }

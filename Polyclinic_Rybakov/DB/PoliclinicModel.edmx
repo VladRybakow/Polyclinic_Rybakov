@@ -5,12 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище PolyclinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Application">
+        <EntityType Name="Applicationsss">
           <Key>
             <PropertyRef Name="Id_application" />
           </Key>
-          <Property Name="Id_application" Type="int" Nullable="false" />
+          <Property Name="Id_application" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Data" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="150" />
           <Property Name="Id_service" Type="int" />
           <Property Name="Id_doctor" Type="int" />
           <Property Name="Id_cabinet" Type="int" />
@@ -53,7 +54,7 @@
           <Key>
             <PropertyRef Name="Id_doctor" />
           </Key>
-          <Property Name="Id_doctor" Type="int" Nullable="false" />
+          <Property Name="Id_doctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="50" />
           <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_doctorType" Type="int" />
@@ -122,57 +123,57 @@
         </EntityType>
         <Association Name="FK_Application_Cabinet">
           <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cabinet">
               <PropertyRef Name="Id_cabinet" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_cabinet" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Application_Doctor">
           <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctor">
               <PropertyRef Name="Id_doctor" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_doctor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Application_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
               <PropertyRef Name="Id_service" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_service" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Application_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id_user" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_user" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Business_Application">
-          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="0..1" />
           <End Role="Business" Type="Self.Business" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Application">
+            <Principal Role="Applicationsss">
               <PropertyRef Name="Id_application" />
             </Principal>
             <Dependent Role="Business">
@@ -217,10 +218,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Conclusion_Application">
-          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="0..1" />
           <End Role="Conclusion" Type="Self.Conclusion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Application">
+            <Principal Role="Applicationsss">
               <PropertyRef Name="Id_application" />
             </Principal>
             <Dependent Role="Conclusion">
@@ -313,7 +314,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище PolyclinicModelContainer">
-          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Applicationsss" EntityType="Self.Applicationsss" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cabinet" EntityType="Self.Cabinet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Conclusion" EntityType="Self.Conclusion" Schema="dbo" store:Type="Tables" />
@@ -328,22 +329,22 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Application_Cabinet" Association="Self.FK_Application_Cabinet">
             <End Role="Cabinet" EntitySet="Cabinet" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Application_Doctor" Association="Self.FK_Application_Doctor">
             <End Role="Doctor" EntitySet="Doctor" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Application_Service" Association="Self.FK_Application_Service">
             <End Role="Service" EntitySet="Service" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Application_User" Association="Self.FK_Application_User">
             <End Role="User" EntitySet="User" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Application" Association="Self.FK_Business_Application">
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
             <End Role="Business" EntitySet="Business" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Conclusion" Association="Self.FK_Business_Conclusion">
@@ -359,7 +360,7 @@
             <End Role="Cabinet" EntitySet="Cabinet" />
           </AssociationSet>
           <AssociationSet Name="FK_Conclusion_Application" Association="Self.FK_Conclusion_Application">
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
             <End Role="Conclusion" EntitySet="Conclusion" />
           </AssociationSet>
           <AssociationSet Name="FK_Department_Polyclinic" Association="Self.FK_Department_Polyclinic">
@@ -395,22 +396,23 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PolyclinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Application">
+        <EntityType Name="Applicationsss">
           <Key>
             <PropertyRef Name="Id_application" />
           </Key>
           <Property Name="Id_application" Type="Int32" Nullable="false" />
           <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Id_service" Type="Int32" />
           <Property Name="Id_doctor" Type="Int32" />
           <Property Name="Id_cabinet" Type="Int32" />
           <Property Name="Id_user" Type="Int32" />
-          <NavigationProperty Name="Cabinet" Relationship="Self.FK_Application_Cabinet" FromRole="Application" ToRole="Cabinet" />
-          <NavigationProperty Name="Doctor" Relationship="Self.FK_Application_Doctor" FromRole="Application" ToRole="Doctor" />
-          <NavigationProperty Name="Service" Relationship="Self.FK_Application_Service" FromRole="Application" ToRole="Service" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Application_User" FromRole="Application" ToRole="User" />
-          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Application" FromRole="Application" ToRole="Business" />
-          <NavigationProperty Name="Conclusion" Relationship="Self.FK_Conclusion_Application" FromRole="Application" ToRole="Conclusion" />
+          <NavigationProperty Name="Cabinet" Relationship="Self.FK_Application_Cabinet" FromRole="Applicationsss" ToRole="Cabinet" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Application_Doctor" FromRole="Applicationsss" ToRole="Doctor" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Application_Service" FromRole="Applicationsss" ToRole="Service" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Application_User" FromRole="Applicationsss" ToRole="User" />
+          <NavigationProperty Name="Business" Relationship="Self.FK_Business_Application" FromRole="Applicationsss" ToRole="Business" />
+          <NavigationProperty Name="Conclusion" Relationship="Self.FK_Conclusion_Application" FromRole="Applicationsss" ToRole="Conclusion" />
         </EntityType>
         <EntityType Name="Business">
           <Key>
@@ -421,7 +423,7 @@
           <Property Name="Id_user" Type="Int32" />
           <Property Name="Id_application" Type="Int32" />
           <Property Name="Id_conclusion" Type="Int32" />
-          <NavigationProperty Name="Application" Relationship="Self.FK_Business_Application" FromRole="Business" ToRole="Application" />
+          <NavigationProperty Name="Applicationsss" Relationship="Self.FK_Business_Application" FromRole="Business" ToRole="Applicationsss" />
           <NavigationProperty Name="Conclusion" Relationship="Self.FK_Business_Conclusion" FromRole="Business" ToRole="Conclusion" />
           <NavigationProperty Name="User" Relationship="Self.FK_Business_User" FromRole="Business" ToRole="User" />
         </EntityType>
@@ -431,7 +433,7 @@
           </Key>
           <Property Name="Id_cabinet" Type="Int32" Nullable="false" />
           <Property Name="Id_department" Type="Int32" />
-          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Cabinet" FromRole="Cabinet" ToRole="Application" />
+          <NavigationProperty Name="Applicationsss" Relationship="Self.FK_Application_Cabinet" FromRole="Cabinet" ToRole="Applicationsss" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Cabinet_Department" FromRole="Cabinet" ToRole="Department" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Service_Cabinet" FromRole="Cabinet" ToRole="Service" />
         </EntityType>
@@ -442,7 +444,7 @@
           <Property Name="Id_conclusion" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Id_application" Type="Int32" />
-          <NavigationProperty Name="Application" Relationship="Self.FK_Conclusion_Application" FromRole="Conclusion" ToRole="Application" />
+          <NavigationProperty Name="Applicationsss" Relationship="Self.FK_Conclusion_Application" FromRole="Conclusion" ToRole="Applicationsss" />
           <NavigationProperty Name="Business" Relationship="Self.FK_Business_Conclusion" FromRole="Conclusion" ToRole="Business" />
         </EntityType>
         <EntityType Name="Department">
@@ -464,7 +466,7 @@
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_doctorType" Type="Int32" />
-          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Doctor" FromRole="Doctor" ToRole="Application" />
+          <NavigationProperty Name="Applicationsss" Relationship="Self.FK_Application_Doctor" FromRole="Doctor" ToRole="Applicationsss" />
           <NavigationProperty Name="DoctorType" Relationship="Self.FK_Doctor_DoctorType" FromRole="Doctor" ToRole="DoctorType" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Service_Doctor" FromRole="Doctor" ToRole="Service" />
         </EntityType>
@@ -517,7 +519,7 @@
           <Property Name="Price" Type="Double" />
           <Property Name="Id_cabinet" Type="Int32" />
           <Property Name="Id_doctor" Type="Int32" />
-          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Service" FromRole="Service" ToRole="Application" />
+          <NavigationProperty Name="Applicationsss" Relationship="Self.FK_Application_Service" FromRole="Service" ToRole="Applicationsss" />
           <NavigationProperty Name="Cabinet" Relationship="Self.FK_Service_Cabinet" FromRole="Service" ToRole="Cabinet" />
           <NavigationProperty Name="Doctor" Relationship="Self.FK_Service_Doctor" FromRole="Service" ToRole="Doctor" />
         </EntityType>
@@ -539,62 +541,62 @@
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Application" Relationship="Self.FK_Application_User" FromRole="User" ToRole="Application" />
+          <NavigationProperty Name="Applicationsss" Relationship="Self.FK_Application_User" FromRole="User" ToRole="Applicationsss" />
           <NavigationProperty Name="Business" Relationship="Self.FK_Business_User" FromRole="User" ToRole="Business" />
         </EntityType>
         <Association Name="FK_Application_Cabinet">
           <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cabinet">
               <PropertyRef Name="Id_cabinet" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_cabinet" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Application_Doctor">
           <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctor">
               <PropertyRef Name="Id_doctor" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_doctor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Application_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
               <PropertyRef Name="Id_service" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_service" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Application_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id_user" />
             </Principal>
-            <Dependent Role="Application">
+            <Dependent Role="Applicationsss">
               <PropertyRef Name="Id_user" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Business_Application">
-          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="0..1" />
           <End Role="Business" Type="Self.Business" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Application">
+            <Principal Role="Applicationsss">
               <PropertyRef Name="Id_application" />
             </Principal>
             <Dependent Role="Business">
@@ -603,10 +605,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Conclusion_Application">
-          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="Applicationsss" Type="Self.Applicationsss" Multiplicity="0..1" />
           <End Role="Conclusion" Type="Self.Conclusion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Application">
+            <Principal Role="Applicationsss">
               <PropertyRef Name="Id_application" />
             </Principal>
             <Dependent Role="Conclusion">
@@ -734,8 +736,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PolyclinicEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Application" EntityType="Self.Application" />
+        <EntityContainer Name="PolyclinicEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applicationsss" EntityType="Self.Applicationsss" />
           <EntitySet Name="Business" EntityType="Self.Business" />
           <EntitySet Name="Cabinet" EntityType="Self.Cabinet" />
           <EntitySet Name="Conclusion" EntityType="Self.Conclusion" />
@@ -750,26 +752,26 @@
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Application_Cabinet" Association="Self.FK_Application_Cabinet">
             <End Role="Cabinet" EntitySet="Cabinet" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Application_Doctor" Association="Self.FK_Application_Doctor">
             <End Role="Doctor" EntitySet="Doctor" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Application_Service" Association="Self.FK_Application_Service">
             <End Role="Service" EntitySet="Service" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Application_User" Association="Self.FK_Application_User">
             <End Role="User" EntitySet="User" />
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Application" Association="Self.FK_Business_Application">
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
             <End Role="Business" EntitySet="Business" />
           </AssociationSet>
           <AssociationSet Name="FK_Conclusion_Application" Association="Self.FK_Conclusion_Application">
-            <End Role="Application" EntitySet="Application" />
+            <End Role="Applicationsss" EntitySet="Applicationsss" />
             <End Role="Conclusion" EntitySet="Conclusion" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Conclusion" Association="Self.FK_Business_Conclusion">
@@ -818,12 +820,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище PolyclinicModelContainer" CdmEntityContainer="PolyclinicEntities">
-          <EntitySetMapping Name="Application">
-            <EntityTypeMapping TypeName="PolyclinicModel.Application">
-              <MappingFragment StoreEntitySet="Application">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PolyclinicModelContainer" CdmEntityContainer="PolyclinicEntities1">
+          <EntitySetMapping Name="Applicationsss">
+            <EntityTypeMapping TypeName="PolyclinicModel.Applicationsss">
+              <MappingFragment StoreEntitySet="Applicationsss">
                 <ScalarProperty Name="Id_application" ColumnName="Id_application" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id_service" ColumnName="Id_service" />
                 <ScalarProperty Name="Id_doctor" ColumnName="Id_doctor" />
                 <ScalarProperty Name="Id_cabinet" ColumnName="Id_cabinet" />

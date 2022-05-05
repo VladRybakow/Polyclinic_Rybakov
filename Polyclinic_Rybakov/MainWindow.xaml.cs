@@ -22,7 +22,7 @@ namespace Polyclinic_Rybakov
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static PolyclinicEntities dbPractik = new PolyclinicEntities();
+        public static PolyclinicEntities1 dbPractik = new PolyclinicEntities1();
         public MainWindow()
         {
             InitializeComponent();

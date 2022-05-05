@@ -12,9 +12,9 @@ namespace Polyclinic_Rybakov.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Application
+    public partial class Applicationsss
     {
-        public Application()
+        public Applicationsss()
         {
             this.Business = new HashSet<Business>();
             this.Conclusion = new HashSet<Conclusion>();
@@ -22,6 +22,7 @@ namespace Polyclinic_Rybakov.DB
     
         public int Id_application { get; set; }
         public Nullable<System.DateTime> Data { get; set; }
+        public string Status { get; set; }
         public Nullable<int> Id_service { get; set; }
         public Nullable<int> Id_doctor { get; set; }
         public Nullable<int> Id_cabinet { get; set; }

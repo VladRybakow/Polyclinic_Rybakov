@@ -20,7 +20,7 @@ namespace Polyclinic_Rybakov.DB
         public Nullable<int> Id_application { get; set; }
         public Nullable<int> Id_conclusion { get; set; }
     
-        public virtual Application Application { get; set; }
+        public virtual Applicationsss Applicationsss { get; set; }
         public virtual Conclusion Conclusion { get; set; }
         public virtual User User { get; set; }
     }

@@ -13,10 +13,10 @@ namespace Polyclinic_Rybakov.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PolyclinicEntities : DbContext
+    public partial class PolyclinicEntities1 : DbContext
     {
-        public PolyclinicEntities()
-            : base("name=PolyclinicEntities")
+        public PolyclinicEntities1()
+            : base("name=PolyclinicEntities1")
         {
         }
     
@@ -25,7 +25,7 @@ namespace Polyclinic_Rybakov.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Application> Application { get; set; }
+        public DbSet<Applicationsss> Applicationsss { get; set; }
         public DbSet<Business> Business { get; set; }
         public DbSet<Cabinet> Cabinet { get; set; }
         public DbSet<Conclusion> Conclusion { get; set; }

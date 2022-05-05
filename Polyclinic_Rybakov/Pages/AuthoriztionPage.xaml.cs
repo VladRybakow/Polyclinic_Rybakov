@@ -34,19 +34,23 @@ namespace Polyclinic_Rybakov.Pages
             };
         }
 
-        public void Recording_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Client());
-        }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
 
-        private void admin_Click(object sender, RoutedEventArgs e)
+        public void Recording_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Client());
+        }
+
+        private void EmpBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Emp());
+        }
+        private void admin_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminPage());
         }
         public void ReloadPage() 
         {

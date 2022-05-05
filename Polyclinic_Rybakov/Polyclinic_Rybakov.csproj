@@ -70,64 +70,68 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DB\Application.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+    <Compile Include="DB\Applicationsss.cs">
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Business.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Cabinet.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Conclusion.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Department.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Doctor.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DoctorType.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Employees.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PoliclinicModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoliclinicModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PoliclinicModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PoliclinicModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoliclinicModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Polyclinic.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\PolyclinicModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyclinicModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\PolyclinicModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\PolyclinicModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Roles.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Service.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\User.cs">
-      <DependentUpon>PolyclinicModel.tt</DependentUpon>
+      <DependentUpon>PoliclinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +154,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -182,12 +189,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DB\PolyclinicModel.edmx">
+    <EntityDeploy Include="DB\PoliclinicModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PolyclinicModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>PoliclinicModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DB\PolyclinicModel.edmx.diagram">
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
+    <None Include="DB\PoliclinicModel.edmx.diagram">
+      <DependentUpon>PoliclinicModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -207,15 +214,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="DB\PolyclinicModel.Context.tt">
+    <Content Include="DB\PoliclinicModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
-      <LastGenOutput>PolyclinicModel.Context.cs</LastGenOutput>
+      <DependentUpon>PoliclinicModel.edmx</DependentUpon>
+      <LastGenOutput>PoliclinicModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\PolyclinicModel.tt">
+    <Content Include="DB\PoliclinicModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyclinicModel.edmx</DependentUpon>
-      <LastGenOutput>PolyclinicModel.cs</LastGenOutput>
+      <DependentUpon>PoliclinicModel.edmx</DependentUpon>
+      <LastGenOutput>PoliclinicModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

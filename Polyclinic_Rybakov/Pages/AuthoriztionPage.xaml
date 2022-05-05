@@ -95,8 +95,8 @@
             Grid.Column="5" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
             Height="42" Width="86" Visibility="Hidden"
-            FontFamily="Segoe Script" FontSize="10" 
-            BorderBrush="Black" Background="White" Margin="0,11,4,0" Click="admin_Click" >
+            FontFamily="Segoe Script" FontSize="10" Click="EmpBTN_Click"
+            BorderBrush="Black" Background="White" Margin="0,11,4,0">
             <Button.Content>
                 <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                     Авторизация за доктора
@@ -113,9 +113,9 @@
             x:Name="admin"
             Grid.Column="6" Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Top" 
-            Height="42" Width="86" Visibility="Hidden"
-            FontFamily="Segoe Script" FontSize="10" 
-            BorderBrush="Black" Background="White" Margin="0,11,4,0" Click="admin_Click" >
+            Height="42" Width="86" Click="admin_Click"
+            FontFamily="Segoe Script" FontSize="10" Visibility="Hidden"
+            BorderBrush="Black" Background="White" Margin="0,11,4,0">
             <Button.Content>
                 <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                     Авторизация за админа

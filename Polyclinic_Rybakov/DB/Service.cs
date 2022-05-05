@@ -16,7 +16,7 @@ namespace Polyclinic_Rybakov.DB
     {
         public Service()
         {
-            this.Application = new HashSet<Application>();
+            this.Applicationsss = new HashSet<Applicationsss>();
         }
     
         public int Id_service { get; set; }
@@ -25,7 +25,7 @@ namespace Polyclinic_Rybakov.DB
         public Nullable<int> Id_cabinet { get; set; }
         public Nullable<int> Id_doctor { get; set; }
     
-        public virtual ICollection<Application> Application { get; set; }
+        public virtual ICollection<Applicationsss> Applicationsss { get; set; }
         public virtual Cabinet Cabinet { get; set; }
         public virtual Doctor Doctor { get; set; }
     }
