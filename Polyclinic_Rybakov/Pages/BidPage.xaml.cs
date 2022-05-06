@@ -33,6 +33,20 @@ namespace Polyclinic_Rybakov.Pages
 
         private void ChekBTN_Click(object sender, RoutedEventArgs e)
         {
+            var gg = Bid.SelectedItem as Service;
+            gg.Name = Name.Text;
+            gg.Price = Convert.ToDouble(Price.Text);
+            gg.Id_cabinet = Convert.ToInt32(Cabinet.Text);
+            var rt = (from ap in dbPractik.Applicationsss
+                      where ap.Id_doctor == Doc.Id_doctor
+                      where ap.Id_service == gg.Id_service
+                      select ap).First();
+            rt.Status = Rt.Text;
+            var dot = (from doc in dbPractik.Doctor
+                       where doc.Id_doctor == gg.Id_doctor
+                       select doc).First();
+            dot.FullName = Doctor.Text;
+            dbPractik.SaveChanges();
 
         }
 

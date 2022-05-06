@@ -60,6 +60,13 @@
             Grid.ColumnSpan="15"
             Grid.Row="2" 
             Fill="#00B1F0"/>
+        
+        <Label 
+            Grid.Row="2"
+            Grid.Column="5" Grid.ColumnSpan="5"  
+            Content="Проверка выбранной вами услуги" 
+            FontSize="18" FontWeight="Bold" FontFamily="Segoe Script"
+            HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <Image Source="..//Images/logo.png" 
                Grid.Column="6" Grid.ColumnSpan="3" 
@@ -75,7 +82,7 @@
         <TextBox 
             Grid.Row="6"
             Grid.Column="10" Grid.ColumnSpan="2" 
-            x:Name="Name"
+            x:Name="Name" IsEnabled="False"
             HorizontalAlignment="Center" VerticalAlignment="Top"
             Height="45" Width="192" FontSize="22"/>
 
@@ -89,7 +96,7 @@
         <TextBox 
             Grid.Row="6"
             Grid.Column="12" Grid.ColumnSpan="2" 
-            x:Name="Price"
+            x:Name="Price" IsEnabled="False"
             HorizontalAlignment="Center" VerticalAlignment="Top"
             Height="45" Width="192" FontSize="22"/>
 
@@ -103,7 +110,7 @@
         <TextBox 
             Grid.Row="9"
             Grid.Column="10" Grid.ColumnSpan="2" 
-            x:Name="Doctor"
+            x:Name="Doctor" IsEnabled="False"
             HorizontalAlignment="Center" VerticalAlignment="Top"
             Height="45" Width="192" FontSize="22"/>
 
@@ -117,7 +124,7 @@
         <TextBox 
             Grid.Row="9"
             Grid.Column="12" Grid.ColumnSpan="2" 
-            x:Name="Cabinet"
+            x:Name="Cabinet" IsEnabled="False"
             HorizontalAlignment="Center" VerticalAlignment="Top"
             Height="45" Width="192" FontSize="22"/>
 
@@ -131,7 +138,7 @@
         <TextBox 
             Grid.Row="11" Grid.RowSpan="2"
             Grid.Column="10" Grid.ColumnSpan="4" 
-            x:Name="Rt"
+            x:Name="Rt" IsEnabled="False"
             HorizontalAlignment="Center" VerticalAlignment="Top"
             Height="130" Width="286" FontSize="22" TextWrapping="Wrap" Margin="47,0,51,0" />
 

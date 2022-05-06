@@ -29,6 +29,11 @@
             Grid.RowSpan="15"
             Fill="#CCEEFF"/>
 
+        <Label 
+            Grid.Column="2" Grid.Row="1"
+            Content="Логин" VerticalAlignment="Top"
+            FontFamily="Segoe Script" FontSize="18" Height="103"/>
+
         <TextBox 
             Grid.Row="1"
             Grid.Column="1" Grid.ColumnSpan="3" 
@@ -37,8 +42,10 @@
             Height="45" Width="267" FontSize="22"/>
 
         <Label 
-            Grid.Column="2" Grid.Row="1"
-            Content="Логин" VerticalAlignment="Top"
+            Grid.Row="3"
+            Grid.Column="2" 
+            Content="Пароль" Width="103"
+            HorizontalAlignment="Left" VerticalAlignment="Top" 
             FontFamily="Segoe Script" FontSize="18" Height="103"/>
 
         <TextBox 
@@ -47,13 +54,6 @@
             x:Name="Password" FontSize="22"
             HorizontalAlignment="Left" 
             Height="45" Width="267"/>
-
-        <Label 
-            Grid.Row="3"
-            Grid.Column="2" 
-            Content="Пароль" Width="103"
-            HorizontalAlignment="Left" VerticalAlignment="Top" 
-            FontFamily="Segoe Script" FontSize="18" Height="103"/>
 
         <Button
             Content="Авторизация"

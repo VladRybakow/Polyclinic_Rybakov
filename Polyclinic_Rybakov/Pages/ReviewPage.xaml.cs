@@ -32,7 +32,6 @@ namespace Polyclinic_Rybakov.Pages
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Client());
-
         }
 
         private void ReviewRP_SelectionChanged(object sender, SelectionChangedEventArgs e)

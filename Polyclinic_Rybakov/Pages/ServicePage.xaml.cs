@@ -56,7 +56,7 @@ namespace Polyclinic_Rybakov.Pages
                 applicationsss.Id_service = ser.Id_service;
                 applicationsss.Id_cabinet = ser.Id_cabinet;
                 applicationsss.Id_doctor = ser.Id_doctor;
-                applicationsss.Id_user = 17;
+                applicationsss.Id_user = AuthorizationWindow.authUser.Id_user;
                 applicationsss.Status = Rt.Text;
                 applicationsss.Data = DateTime.Now;
                 ServicePage.dbPractik.Applicationsss.Add(applicationsss);
